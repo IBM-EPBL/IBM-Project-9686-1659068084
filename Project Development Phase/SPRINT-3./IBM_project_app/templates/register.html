@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href='{{url_for('static',filename='Lcssstyle.css')}}'>
+
+  
+</head>
+<script>
+
+function confirmPass() {
+    var pass = document.getElementById("pswd").value
+    var confPass = document.getElementById("cpswd").value
+    if(pass != confPass) {
+        //alert('Wrong confirm password !');
+        document.getElementById('error').innerHTML='wrong confirm password';
+		document.getElementById('rbtn').disabled=true;
+    }
+    else
+    {
+        document.getElementById('error').innerHTML='';
+		document.getElementById('rbtn').disabled=false;
+    }
+}
+//function hello()
+//{
+// console.log("Hellow world");
+ 
+</script>
+<body>
+ <h1 class="h1">REGISTRATION</h1>
+ <div class="register">
+    <form action="{{ url_for('register')}}" method="post">
+       Email: <input type="email" name="email" placeholder="ex:abc@gmail.com" required="required" autocomplete />
+       Password: <input type="password" name="pswd" id="pswd" placeholder="ex:abc@123" required="required" maxlength=15/>
+	   Confirm Password:<input type="password" name="cpswd" id="cpswd" placeholder="re-enter same password" required="required" oninput="confirmPass()" />
+	   <span id="error" style="color:#F00;"> </span>
+       <button type="submit" class="btn btn-primary btn-block" id="rbtn">Register</button>
+    </form>
+
+   <br>
+   <br>
+   
+
+ </div>
+
+
+</body>
+</html>

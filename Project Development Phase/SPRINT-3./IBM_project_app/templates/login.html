@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{url_for('static',filename='Lcssstyle.css')}}">
+
+  
+</head>
+<body>
+ <h1 class="h1">LOGIN</h1>
+ <div class="login">
+    <form action="{{ url_for('login')}}" method="post">
+       Email: <input type="email" name="email" placeholder="ex:abc@gmail.com" required="required" autocomplete />
+       Password: <input type="password" name="pswd" id="pswd" placeholder="ex:abc@123" required="required" maxlength=15/>
+	  {{error}}
+	   <span id="error" style="color:#F00;"> </span>
+       <button type="submit" class="btn btn-primary btn-block" id="lbtn">login</button>
+       <h5>not registered yet </h5><a href="{{url_for('reg')}}">click here for register</a>
+    </form>
+
+   <br>
+   <br>
+   
+
+ </div>
+
+
+</body>
+</html>
